@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from 'express';
+import express, { type Express, type Request, type Response } from 'express';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -7,7 +7,10 @@ const app: Express = express();
 const port = process.env.PORT;
 
 app.get('/', (req: Request, res: Response) => {
-  res.send('Express + TypeScript Server');
+  res.send({
+    message: 'REST API Running',
+    now: new Date().getTime().toLocaleString()
+  });
 });
 
 app.listen(port, () => {
